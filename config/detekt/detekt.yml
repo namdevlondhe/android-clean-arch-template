@@ -1,0 +1,22 @@
+# Builds on detekt's default rules; only project-specific overrides live here.
+naming:
+  FunctionNaming:
+    # Allow PascalCase @Composable functions.
+    ignoreAnnotated: ['Composable']
+  TopLevelPropertyNaming:
+    constantPattern: '[A-Z][A-Za-z0-9_]*'
+
+style:
+  MagicNumber:
+    ignorePropertyDeclaration: true
+    ignoreCompanionObjectPropertyDeclaration: true
+    # Compose layout values (16.dp, 24.dp …) are design values, not magic numbers.
+    excludes: ['**/test/**', '**/designsystem/**', '**/*Screen.kt']
+  UnusedPrivateMember:
+    ignoreAnnotated: ['Preview']
+
+complexity:
+  LongMethod:
+    ignoreAnnotated: ['Composable']
+  LongParameterList:
+    ignoreDefaultParameters: true
